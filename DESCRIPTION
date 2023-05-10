@@ -1,0 +1,10 @@
+Package: CTRing
+Type: Package
+Title: Density profils of wood from CT scan images
+Version: 0.1.0
+Author: Robert Schneider Dipak Mahatara
+Maintainer: Robert Schneider <robert_schneider@uqar.ca>
+Description: Wood density profils are extracted from computerized tomography (CT) scan images of tree discs. The pith is detected automatically.
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
