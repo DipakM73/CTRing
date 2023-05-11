@@ -1,0 +1,40 @@
+---
+title: "CTRing"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{CTRing}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(CTRing)
+```
+
+The first step is to import an image of a disk obtained from a CT scanner. These are often in dicom (or dcm) formats.
+
+```{r}
+library(oro.dicom)
+dcm <-  readDICOM("../extdata/")
+```
+
+The next step is to obtain the information in the image header in order to determine pixel size and gray scale used by the CT scanner
+
+```{r}
+hdr_df <- dcm$hdr[[1]]
+image_info <- getImageInfo(hdr = hdr_df)
+```
+
+The next step is convert the gray scale of the image to 8bit gray scale.
+
+```{r}
+im <- imageToMatrix(dcm$img)
+```
+

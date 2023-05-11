@@ -1,0 +1,19 @@
+#' Convert image matrix to raster
+#'
+#' @param im Density matrix
+#' @param pixel_size_x Pith coordinate in x in unit lengths
+#' @param pixel_size_y Pith coordinates in y in unit lengths
+#'
+#' @return Density raster
+#'
+#' @import terra
+#' @export
+#'
+#' @examples
+matrixToRaster <- function(im, pixel_size_x, pixel_size_y) {
+  im_raster <- rast(rotate(rotate(rotate(im))),
+                    extent = c(xmin = 0, xmax = dim(im)[1]*pixel_size_x,
+                               ymin = 0, ymax = dim(im)[2]*pixel_size_y)
+  )
+  return(im_raster)
+}
