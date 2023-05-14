@@ -2,6 +2,7 @@
 
 export(checkProfile)
 export(detect_pith)
+export(extractProfile)
 export(getDensityProfile)
 export(getImageInfo)
 export(grayToDensity)
