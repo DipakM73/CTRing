@@ -19,7 +19,7 @@ extractProfile(
 
 \item{r}{Profile width}
 
-\item{k}{Rolling window width, interger}
+\item{k}{Rolling window width, integer}
 
 \item{threshold}{Threshold value between maximum and minimum density to establish change of ring}
 

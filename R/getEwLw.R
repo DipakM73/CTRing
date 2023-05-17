@@ -5,25 +5,19 @@
 #'
 #' @return xRingList with EW to LW transition points
 #'
-getEwLw <- function(xRingList, dist) {
-
-  # xRingList <- t2
-  # dist <- path_profile_noNA$pith_distance
+#' @export
+#'
+#' @examples
+getEwLw <- function(densProfile) {
 
   # split to individual rings
-  dens <- xRingList$profile.raw
-  cutPoints <- xRingList$limits
+  dist <- densProfile$distFromPith
+  dens <- densProfile$dens
+  cutPoints <- densProfile$ring_limits
   ringList <- splitAt(dens, cutPoints)
   distList <- splitAt(dist, cutPoints)
 
   ringDistList <- mapply(cbind, distList, ringList)
-
-  # find index for EW to LW transition within each ring
-  # ewList <- lapply(ringDistList[3], findEwToLwTransition)
-  # for (i in 1:length(ringDistList)){
-  #   print(i)
-  #   test <- lapply(ringDistList[i], findEwToLwTransition)
-  # }
 
   ewList <- lapply(ringDistList, findEwToLwTransition)
 
@@ -33,10 +27,10 @@ getEwLw <- function(xRingList, dist) {
 
   ewDataFrame$totPoints <- c(0, cumsum(ewDataFrame$nPoints)[-length(ewDataFrame$nPoints)])
   ewDataFrame$limits.EW <- ewDataFrame$totPoints + floor(ewDataFrame$EW)
-  ewDataFrame$limits.LW <- ewDataFrame$totPoints + ceiling(ewDataFrame$EW)
+  # ewDataFrame$limits.LW <- ewDataFrame$totPoints + ceiling(ewDataFrame$EW)
 
-  xRingList$limits.ew <- ewDataFrame$limits.EW[2:length(ewDataFrame$limits.EW)]
-  xRingList$limits.lw <- ewDataFrame$limits.LW[2:length(ewDataFrame$limits.LW)]
+  densProfile$ew_limits <- ewDataFrame$limits.EW[1:length(ewDataFrame$limits.EW)]
+  # densProfile$limits.lw <- ewDataFrame$limits.LW[2:length(ewDataFrame$limits.LW)]
 
-  return(xRingList)
+  return(densProfile)
 }

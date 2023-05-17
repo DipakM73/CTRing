@@ -12,9 +12,9 @@
 #' @export
 #'
 #' @examples
-ringBorders <- function(t, name = "t1", thershold = 0.1, minTrw = 1) {
-  out <- getBorders(toxRing(t, seriesName = name),
-                    thershold,
-                    minTrw)
-  return(out)
-}
+# ringBorders <- function(t, name = "t1", thershold = 0.1, minTrw = 1) {
+#   out <- getBorders(toxRing(t, seriesName = name),
+#                     thershold,
+#                     minTrw)
+#   return(out)
+# }

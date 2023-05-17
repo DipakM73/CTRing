@@ -4,7 +4,7 @@
 \alias{getEwLw}
 \title{Establish the transition point from earlywood to latewood for a series of rings}
 \usage{
-getEwLw(xRingList, dist)
+getEwLw(densProfile)
 }
 \arguments{
 \item{xRingList}{A list of xRing profiles}

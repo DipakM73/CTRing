@@ -201,55 +201,17 @@ calcEww <- function(df){
   return(eww)
 }
 
-# generate density df with all the information
-densityDataFrame <- function(profile, xRingList) {
+# remove duplicate distances from density profile
+removeDuplicates <- function(densProfile) {
+  freqDistances <- which(duplicated(densProfile$distFromPith))
 
-  # xRingList <- t3
-  # profile <- path_profile_noNA
-
-  dens <- xRingList$density
-  dens$year <- as.numeric(rownames(dens))
-  row.names(dens) <- c()
-
-  # set point IDs
-  profile$pointID <- seq(1:dim(profile)[1])
-
-  # add ring age
-  limits.ring <- limitVector(xRingList$limits)
-  profile <- merge(profile, limits.ring, by = "pointID")
-
-  # add calendar year
-  profile$year <- max(xRingList$years) - (max(profile$ringAge) - profile$ringAge)
-
-  # calculate rw
-  rw <- lapply(split(profile, profile$year), calcRw)
-  rw <- data.frame(year=names(rw),
-                   rw=unlist(rw)
-  )
-  row.names(rw) <- c()
-  dens <- merge(dens, rw, by = 'year')
-
-  # calculate eww
-  # add ew transition
-  limits.ring <- limitVector(xRingList$limits.ew)
-  names(limits.ring) <- c("pointID", "ewAge")
-  profile <- merge(profile, limits.ring, by = "pointID")
-
-  eww <- lapply(split(profile, profile$year), calcEww)
-  eww <- data.frame(year=names(eww),
-                    eww=unlist(eww)
-  )
-  row.names(eww) <- c()
-  dens <- merge(dens, eww, by = 'year')
-
-  # calculate lww
-  dens$lww <- dens$rw - dens$eww
-
-  # calculate pctLw
-  dens$pctLw <- dens$lww / dens$rw
-
-  # calculate cambial age
-  dens$ringAge <- 1 + max(max(dens$year) - dens$year) - (max(dens$year) - dens$year)
-
-  return(dens)
+  for (i in rev(freqDistances)){
+    densProfile$xx <- densProfile$xx[-i]
+    densProfile$yy <- densProfile$yy[-i]
+    densProfile$dens <- densProfile$dens[-i]
+    densProfile$distFromPith <- densProfile$distFromPith[-i]
+    densProfile$ring_limits[densProfile$ring_limits > i] <- densProfile$ring_limits[densProfile$ring_limits > i] - 1
+  }
+  return(densProfile)
 }
+
