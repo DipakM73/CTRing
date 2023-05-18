@@ -215,3 +215,8 @@ removeDuplicates <- function(densProfile) {
   return(densProfile)
 }
 
+# calculate ring width
+
+calcRingWidth <- function(distance, lagDistance){
+  width <- max(distance) - min(lagDistance)
+}
