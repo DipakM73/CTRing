@@ -27,6 +27,6 @@ densityDataFrame <- function(densProfile, sampleID = "NoID") {
 
     return(out)
   } else {
-    Print("Average density needs to be calculated before generating dataframe")
+    print("Average density needs to be calculated before generating dataframe")
   }
 }

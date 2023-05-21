@@ -306,3 +306,5 @@ get_profile <- function(im,
     data.frame(x = temp$xx + temp$xx_delta[temp$c / 2], y = temp$yy + temp$yy_delta[temp$c / 2])
   xy[temp$ring_limits, ]
 }
+
+

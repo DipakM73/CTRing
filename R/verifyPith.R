@@ -10,8 +10,8 @@
 verifyPith <- function(im, pith_coord) {
   dev.new()
   image(im)
-  abline(v = pith_coord["x"], col = 'blue')
-  abline(h = pith_coord["y"], col = 'blue')
+  abline(v = pith_coord["x"]/dim(im)[1], col = 'blue')
+  abline(h = pith_coord["y"]/dim(im)[2], col = 'blue')
 
   print("Is pith correctly located (y/n)? ")
   correct <- readline()

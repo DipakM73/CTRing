@@ -6,8 +6,8 @@
 #'
 #' @return Density raster
 #'
-#' @import terra
 #' @export
+#' @import terra
 #'
 #' @examples
 matrixToRaster <- function(im, pixel_size_x, pixel_size_y) {
