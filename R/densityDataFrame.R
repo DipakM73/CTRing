@@ -2,12 +2,13 @@
 #'
 #' @param densProfile Density profile
 #' @param sampleID Sample ID
+#' @param addTransitionType add transition type to dataframe
 #'
-#' @return Dataframe with cambial age, density, years
+#' @return Dataframe with cambial age, density, years, transition type
 #' @export
 #'
 #' @examples
-densityDataFrame <- function(densProfile, sampleID = "NoID") {
+densityDataFrame <- function(densProfile, sampleID = "NoID", addTransitionType = FALSE) {
 
   if ("avgDens" %in% names(densProfile)){
     dens <- densProfile$avgDens
@@ -24,6 +25,8 @@ densityDataFrame <- function(densProfile, sampleID = "NoID") {
       out$avgDensLw <- densProfile$avgDensLw
     if ("years" %in% names(densProfile))
       out$years <- densProfile$years
+    if (addTransitionType == TRUE)
+      out$transitionType = densProfile$transitionType
 
     return(out)
   } else {

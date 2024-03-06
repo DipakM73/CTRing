@@ -13,6 +13,8 @@ removeLastYear <- function(densProfile) {
   densProfile$distFromPith <- densProfile$distFromPith[-c(max(densProfile$ring_limits):length(densProfile$distFromPith))]
   densProfile$ring_limits <- densProfile$ring_limits[-length(densProfile$ring_limits)]
   densProfile$distRingChange <- densProfile$distRingChange[-length(densProfile$distRingChange)]
+  densProfile$transitionType <- densProfile$transitionType[-length(densProfile$transitionType)]
+
 
   if ("ew_limits" %in% names(densProfile))
     densProfile$ew_limits <- densProfile$ew_limits[-length(densProfile$ew_limits)]

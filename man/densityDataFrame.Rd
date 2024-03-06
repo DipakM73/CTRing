@@ -4,15 +4,17 @@
 \alias{densityDataFrame}
 \title{Convert to dataframe}
 \usage{
-densityDataFrame(densProfile, sampleID = "NoID")
+densityDataFrame(densProfile, sampleID = "NoID", addTransitionType = FALSE)
 }
 \arguments{
 \item{densProfile}{Density profile}
 
 \item{sampleID}{Sample ID}
+
+\item{addTransitionType}{add transition type to dataframe}
 }
 \value{
-Dataframe with cambial age, density, years
+Dataframe with cambial age, density, years, transition type
 }
 \description{
 Convert to dataframe

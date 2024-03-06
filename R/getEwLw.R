@@ -3,7 +3,7 @@
 #' @param xRingList A list of xRing profiles
 #' @param dist A vector of distances of each point from pith center
 #'
-#' @return xRingList with EW to LW transition points
+#' @return xRingList with EW to LW transition points with transition type added (1: low number of points in ring; 2: inflexion point estimated by polynomial; 3: min or max are out of range; 4: inflexion point close to min or max; 5: convex-concave)
 #'
 #' @export
 #'
@@ -31,6 +31,8 @@ getEwLw <- function(densProfile) {
 
   densProfile$ew_limits <- ewDataFrame$limits.EW[1:length(ewDataFrame$limits.EW)]
   # densProfile$limits.lw <- ewDataFrame$limits.LW[2:length(ewDataFrame$limits.LW)]
+
+  densProfile$transitionType <- ewDataFrame$type
 
   return(densProfile)
 }

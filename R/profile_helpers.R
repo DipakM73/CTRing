@@ -62,11 +62,13 @@ findEwToLwTransition <- function(ringDist, ringID = NaN, toPlot=F) {
   #ringDist <- ringDistList[[3]]
   ring <- ringDist[,2]
   dist <- ringDist[,1]
+  type <- 0 # set value to 0
 
   nPoints <- length(ring)
   if (nPoints <= 4){
     minMax <- c(min = 1, max = 3)
     inflexPoint <- 2
+    type <- 1 # low number of points in ring
   } else {
     polyCoefs <- getPolyCoefs(dist, ring)
 
@@ -85,6 +87,7 @@ findEwToLwTransition <- function(ringDist, ringID = NaN, toPlot=F) {
     inflexPoint <- indexClosestVal(dist, inflexPoint)
     minMax["min"] <- indexClosestVal(dist, minMax["min"])
     minMax["max"] <- indexClosestVal(dist, minMax["max"])
+    type <- 2 # inflexion point estimated by polynomial
 
     #for cases where inflection point is outside of observed min or max
     if ((inflexPoint <= minMax["min"]) | (inflexPoint >= minMax["max"])) {
@@ -102,6 +105,7 @@ findEwToLwTransition <- function(ringDist, ringID = NaN, toPlot=F) {
       inflexPoint <- approx(x = c(densHatMin, densHatMax),
                             y = minMax,
                             xout = densHalf)$y
+      type <- 3 # min or max are out of range
     }
 
     #for cases where inflection point is very close to the min or max
@@ -120,6 +124,7 @@ findEwToLwTransition <- function(ringDist, ringID = NaN, toPlot=F) {
       inflexPoint <- approx(x = c(densHatMin, densHatMax),
                             y = minMax,
                             xout = densHalf)$y
+      type <- 4 # inflexion point close to min or max
     }
 
     # for cases where cuvre is convex-concave
@@ -139,6 +144,7 @@ findEwToLwTransition <- function(ringDist, ringID = NaN, toPlot=F) {
       inflexPoint <- approx(x = c(densHatMin, densHatMax),
                             y = minMax,
                             xout = densHalf)$y
+      type <- 5 # convex-concave
     }
   }
 
@@ -165,8 +171,8 @@ findEwToLwTransition <- function(ringDist, ringID = NaN, toPlot=F) {
     abline(v=dist[minMax], col=c('red', 'blue'))
   }
 
-  out <- c(minMax, inflexPoint, nPoints)
-  names(out) <- c("min", "max", "EW", "nPoints")
+  out <- c(minMax, inflexPoint, nPoints, type)
+  names(out) <- c("min", "max", "EW", "nPoints", "type")
   return(out)
 }
 
