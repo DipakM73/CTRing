@@ -11,6 +11,7 @@
 #' file_path <- system.file("extdata", "disk.dcm", package = "CTRing")
 #' dcm <-  readDICOM(file_path)
 #' hdr_df <- dcm$hdr[[1]]
+#' image_info <- getImageInfo(hdr = hdr_df)
 #'
 #' im <- imageToMatrix(dcm$img)
 #' range(im)

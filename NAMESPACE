@@ -2,6 +2,7 @@
 
 export(addRingFromImage)
 export(addRingFromProfile)
+export(addYears)
 export(calcAvgDens)
 export(checkProfile)
 export(deleteRingFromImage)

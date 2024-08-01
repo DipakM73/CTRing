@@ -18,6 +18,6 @@ xRing profile with corrected ring location
 Verify position of ring transitions of a density profile
 }
 \examples{
-t2 <- checkProfile(t1, 30)
+# t2 <- checkProfile(t1, 30)
 
 }

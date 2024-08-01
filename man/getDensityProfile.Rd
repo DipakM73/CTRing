@@ -31,9 +31,9 @@ Dataframe with profile values (distance from pith, density)
 Obtain pith to bark density profile
 }
 \examples{
-path_profile <- getDensityProfile(theta = 0,
-  pith_coord_units = pith_coord_units,
-  im_raster = im_raster,
-  toPlot = TRUE)
+# path_profile <- getDensityProfile(theta = 0,
+#   pith_coord_units = pith_coord_units,
+#   im_raster = im_raster,
+#   toPlot = TRUE)
 
 }

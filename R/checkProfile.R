@@ -9,7 +9,7 @@
 #' @import xRing
 #'
 #' @examples
-#' t2 <- checkProfile(t1, 30)
+#' # t2 <- checkProfile(t1, 30)
 #'
 checkProfile <- function(profile_with_borders, totRings) {
   # profile_with_borders <- t1

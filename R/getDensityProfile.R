@@ -13,10 +13,10 @@
 #' @export
 #'
 #' @examples
-#' path_profile <- getDensityProfile(theta = 0,
-#'   pith_coord_units = pith_coord_units,
-#'   im_raster = im_raster,
-#'   toPlot = TRUE)
+#' # path_profile <- getDensityProfile(theta = 0,
+#' #   pith_coord_units = pith_coord_units,
+#' #   im_raster = im_raster,
+#' #   toPlot = TRUE)
 #'
 getDensityProfile <- function(pith_coord_units, im_raster, theta.deg = 0,
                               toPlot = FALSE, density_cutoff = 0.1,
