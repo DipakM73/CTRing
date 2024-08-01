@@ -17,3 +17,16 @@ Matrix of gray scale values in 8bits
 \description{
 Convert gray scale from measured bits to 8bit
 }
+\examples{
+library(oro.dicom)
+file_path <- system.file("extdata", "disk.dcm", package = "CTRing")
+dcm <-  readDICOM(file_path)
+hdr_df <- dcm$hdr[[1]]
+
+im <- imageToMatrix(dcm$img)
+range(im)
+
+im_8bit <- xBitTo8Bit(im, image_info$grayScale)
+range(im_8bit)
+
+}

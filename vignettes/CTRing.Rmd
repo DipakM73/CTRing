@@ -23,7 +23,8 @@ The first step is to import an image of a disk obtained from a CT scanner. These
 
 ```{r}
 library(oro.dicom)
-dcm <-  readDICOM()
+file_path <- system.file("extdata", "disk.dcm", package = "CTRing")
+dcm <-  readDICOM(file_path)
 ```
 
 The next step is to obtain the information in the image header in order to determine pixel size and gray scale used by the CT scanner
@@ -52,7 +53,7 @@ Once the pith is located, the end of the path for the density profile is set eit
 
 ```{r}
 endPath <- c(472, 284) # manual
-endPath <- locatePathEnd(im_dens, pith_coord) # using the image
+endPath <- locatePathEnd(im_dens, pith_coord_checked) # using the image
 ```
 
 The pith to bark density profile is then extracted, and can be visualized.

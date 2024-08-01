@@ -17,3 +17,18 @@ Corrected pith coordinates
 \description{
 Check if pith location is correct
 }
+\examples{
+library(oro.dicom)
+file_path <- system.file("extdata", "disk.dcm", package = "CTRing")
+dcm <-  readDICOM(file_path)
+hdr_df <- dcm$hdr[[1]]
+
+im <- imageToMatrix(dcm$img)
+im_8bit <- xBitTo8Bit(im, image_info$grayScale)
+im_dens <- grayToDensity(im_8bit)
+
+pith_coord <- detect_pith(im_dens, n_segments = 12, pixel = TRUE, toPlot = FALSE)
+
+pith_coord_checked <- verifyPith(im_dens, pith_coord)
+
+}

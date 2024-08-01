@@ -6,6 +6,12 @@
 #' @export
 #'
 #' @examples
+#' library(oro.dicom)
+#' file_path <- system.file("extdata", "disk.dcm", package = "CTRing")
+#' dcm <-  readDICOM(file_path)
+#' hdr_df <- dcm$hdr[[1]]
+#' getImageInfo(hdr = hdr_df)
+#'
 getImageInfo <- function(hdr) {
   #gray scale of CT scan
   grayScale <- as.numeric(hdr$value[hdr$name == "BitsStored"])
@@ -16,7 +22,8 @@ getImageInfo <- function(hdr) {
   pixel_size_x <- size[1]
   pixel_size_y <- size[2]
 
-  out <- list(grayScale = grayScale,
+  list(grayScale = grayScale,
               pixel_size_x = pixel_size_x,
               pixel_size_y = pixel_size_y)
+
 }

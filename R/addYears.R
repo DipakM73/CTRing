@@ -6,9 +6,30 @@
 #' @return Density profile with years
 #' @export
 #'
+#' library(oro.dicom)
+#' file_path <- system.file("extdata", "disk.dcm", package = "CTRing")
+#' dcm <-  readDICOM(file_path)
+#' hdr_df <- dcm$hdr[[1]]
+#'
+#' im <- imageToMatrix(dcm$img)
+#' im_8bit <- xBitTo8Bit(im, image_info$grayScale)
+#' im_dens <- grayToDensity(im_8bit)
+#'
+#' pith_coord <- detect_pith(im_dens, n_segments = 12, pixel = TRUE, toPlot = FALSE)
+#'
+#' pith_coord_checked <- verifyPith(im_dens, pith_coord)
+#'
+#' endPath <- c(472, 284) # manual
+#' endPath <- locatePathEnd(im_dens, pith_coord) # using the image
+#'
+#' path <- extractProfile(im_dens, image_info, pith_coord, endPath, k = 2, r = 5, threshold = 0.002)
+#'
+#' path <- addYears(2021, path)
+#'
 #' @examples
 addYears <- function(lastYear, densProfile) {
   densProfile$years <- seq(from = lastYear-length(densProfile$ring_limits),
                            to = lastYear)
   return(densProfile)
 }
+

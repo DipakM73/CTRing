@@ -7,6 +7,17 @@
 #' @export
 #'
 #' @examples
+#' library(oro.dicom)
+#' file_path <- system.file("extdata", "disk.dcm", package = "CTRing")
+#' dcm <-  readDICOM(file_path)
+#' hdr_df <- dcm$hdr[[1]]
+#'
+#' im <- imageToMatrix(dcm$img)
+#' range(im)
+#'
+#' im_8bit <- xBitTo8Bit(im, image_info$grayScale)
+#' range(im_8bit)
+#'
 xBitTo8Bit <- function(im, bits) {
   nGray <- 2^bits
   im_8bit <- im/ (nGray/2^8)

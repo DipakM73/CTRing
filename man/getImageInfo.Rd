@@ -15,3 +15,11 @@ List with grayscale values, and pixel size
 \description{
 Extract from header of CT scan image grayscale number of bits and pixel size
 }
+\examples{
+library(oro.dicom)
+file_path <- system.file("extdata", "disk.dcm", package = "CTRing")
+dcm <-  readDICOM(file_path)
+hdr_df <- dcm$hdr[[1]]
+getImageInfo(hdr = hdr_df)
+
+}

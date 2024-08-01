@@ -8,6 +8,29 @@
 #' @export
 #'
 #' @examples
+#' library(oro.dicom)
+#' file_path <- system.file("extdata", "disk.dcm", package = "CTRing")
+#' dcm <-  readDICOM(file_path)
+#' hdr_df <- dcm$hdr[[1]]
+#'
+#' im <- imageToMatrix(dcm$img)
+#' im_8bit <- xBitTo8Bit(im, image_info$grayScale)
+#' im_dens <- grayToDensity(im_8bit)
+#'
+#' pith_coord <- detect_pith(im_dens, n_segments = 12, pixel = TRUE, toPlot = FALSE)
+#'
+#' pith_coord_checked <- verifyPith(im_dens, pith_coord)
+#'
+#' endPath <- c(472, 284) # manual
+#' endPath <- locatePathEnd(im_dens, pith_coord) # using the image
+#'
+#' path <- extractProfile(im_dens, image_info, pith_coord, endPath, k = 2, r = 5, threshold = 0.002)
+#'
+#' pathEwLw <- getEwLw(path)
+#' plotProfile(pathEwLw)
+#' path_avgDens <- calcAvgDens(pathEwLw)
+#' densityDf <- densityDataFrame(pathEwLw)
+#'
 densityDataFrame <- function(densProfile, sampleID = "NoID", addTransitionType = FALSE) {
 
   if ("avgDens" %in% names(densProfile)){
@@ -30,6 +53,8 @@ densityDataFrame <- function(densProfile, sampleID = "NoID", addTransitionType =
 
     return(out)
   } else {
-    print("Average density needs to be calculated before generating dataframe")
+    message("The function 'calcAvgDens' was used to calculate\naverage density before generating the dataframe.")
+    path_avgDens <- calcAvgDens(densProfile)
+    return(densityDataFrame(path_avgDens, sampleID, addTransitionType))
   }
 }
