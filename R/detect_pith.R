@@ -3,7 +3,7 @@
 #' @param im Matrix of the CT scan image
 #' @param toPlot Boolean to plot the location of the pith on the image
 #' @param n_segments Number of segements used to locate pith
-#' @param flag
+#' @param flag FALSE if pith location is known
 #' @param x_0 Estimate of pith location in x
 #' @param y_0 Estimate of pith location in y
 #' @param n_run_max Maximum number of iterations

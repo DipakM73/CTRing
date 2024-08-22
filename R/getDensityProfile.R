@@ -5,6 +5,7 @@
 #' @param im_raster Raster image of the CT scan image
 #' @param toPlot Boolean to determine if a plot of the path on the image is returned
 #' @param density_cutoff Density value below which values are not considered
+#' @param name Sample name
 #'
 #' @return Dataframe with profile values (distance from pith, density)
 #'

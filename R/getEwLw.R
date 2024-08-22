@@ -1,7 +1,6 @@
 #' Establish the transition point from earlywood to latewood for a series of rings
 #'
-#' @param xRingList A list of xRing profiles
-#' @param dist A vector of distances of each point from pith center
+#' @param densProfile Density profile
 #'
 #' @return xRingList with EW to LW transition points with transition type added (1: low number of points in ring; 2: inflexion point estimated by polynomial; 3: min or max are out of range; 4: inflexion point close to min or max; 5: convex-concave)
 #'

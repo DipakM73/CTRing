@@ -6,7 +6,7 @@
 #' @return Pixel coordinates in number of pixels (x, y)
 #' @export
 #'
-#' @examples
+#'
 relToPixel <- function(pith_coord, im){
   pith_coord["x"] <- pith_coord["x"]*dim(im)[1]
   pith_coord["y"] <- pith_coord["y"]*dim(im)[2]

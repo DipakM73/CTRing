@@ -23,6 +23,8 @@ detect_pith(
 
 \item{n_segments}{Number of segements used to locate pith}
 
+\item{flag}{FALSE if pith location is known}
+
 \item{x_0}{Estimate of pith location in x}
 
 \item{y_0}{Estimate of pith location in y}

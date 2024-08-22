@@ -8,6 +8,8 @@ locatePathEnd(im, pithCoord)
 }
 \arguments{
 \item{im}{CT scan image}
+
+\item{pithCoord}{X,Y coordinates of the pith}
 }
 \value{
 Coordinates of the end of the path

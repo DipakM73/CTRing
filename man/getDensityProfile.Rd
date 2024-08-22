@@ -23,6 +23,8 @@ getDensityProfile(
 \item{toPlot}{Boolean to determine if a plot of the path on the image is returned}
 
 \item{density_cutoff}{Density value below which values are not considered}
+
+\item{name}{Sample name}
 }
 \value{
 Dataframe with profile values (distance from pith, density)

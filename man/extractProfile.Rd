@@ -17,15 +17,20 @@ extractProfile(
 \arguments{
 \item{im}{Density matrix}
 
+\item{imHeader}{image header}
+
+\item{beginPath}{X,Y coordinates of the start point of the path}
+
+\item{endPath}{X,Y coordinates of the start point of the path}
+
 \item{r}{Profile width}
 
 \item{k}{Rolling window width, integer}
 
 \item{threshold}{Threshold value between maximum and minimum density to establish change of ring}
-
-\item{x}{Values of X for points 1 and 2 (x1, x2)}
-
-\item{y}{Values of y for points 1 and 2 (y1, y2)}
+}
+\value{
+Density profile
 }
 \description{
 Get profile between two points of the CTScan image matrix

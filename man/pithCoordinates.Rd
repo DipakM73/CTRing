@@ -14,7 +14,7 @@ pithCoordinates(pith_coord, pixel_size_x, pixel_size_y)
 \item{pixel_size_y}{Pixel size in y}
 }
 \value{
-Pixel coordinates in lenght units
+Pixel coordinates in length units
 }
 \description{
 convert pith coordinates from pixels to length units

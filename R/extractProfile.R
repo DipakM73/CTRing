@@ -1,13 +1,14 @@
 #' Get profile between two points of the CTScan image matrix
 #'
 #' @param im Density matrix
-#' @param x Values of X for points 1 and 2 (x1, x2)
-#' @param y Values of y for points 1 and 2 (y1, y2)
+#' @param imHeader image header
+#' @param beginPath X,Y coordinates of the start point of the path
+#' @param endPath X,Y coordinates of the start point of the path
 #' @param r Profile width
 #' @param k Rolling window width, integer
 #' @param threshold Threshold value between maximum and minimum density to establish change of ring
 #'
-#' @return
+#' @return Density profile
 #'
 #' @export
 #' @import xRing

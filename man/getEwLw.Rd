@@ -7,9 +7,7 @@
 getEwLw(densProfile)
 }
 \arguments{
-\item{xRingList}{A list of xRing profiles}
-
-\item{dist}{A vector of distances of each point from pith center}
+\item{densProfile}{Density profile}
 }
 \value{
 xRingList with EW to LW transition points with transition type added (1: low number of points in ring; 2: inflexion point estimated by polynomial; 3: min or max are out of range; 4: inflexion point close to min or max; 5: convex-concave)

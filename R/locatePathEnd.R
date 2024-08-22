@@ -1,6 +1,7 @@
 #' Get coordinates of the end of the path on a CT scan image
 #'
 #' @param im CT scan image
+#' @param pithCoord X,Y coordinates of the pith
 #'
 #' @return Coordinates of the end of the path
 #' @export

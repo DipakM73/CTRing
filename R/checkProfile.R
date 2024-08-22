@@ -21,7 +21,7 @@ checkProfile <- function(profile_with_borders, totRings) {
   if (deltaRingNumber > 0 ){
     print(paste("Add ", deltaRingNumber, " rings to the profile"))
 
-    x11()
+    dev.new()
     plot(profile_with_borders)
 
     profile_with_borders <- addRing(profile_with_borders, locator(deltaRingNumber)$x)
@@ -31,14 +31,14 @@ checkProfile <- function(profile_with_borders, totRings) {
   if (deltaRingNumber < 0 ){
     print(paste("Remove ", deltaRingNumber, " rings from profile"))
 
-    x11()
+    dev.new()
     plot(profile_with_borders)
 
     profile_with_borders <- removeRing(profile_with_borders, locator(deltaRingNumber)$x)
   }
 
   print("Check profile")
-  x11()
+  dev.new()
   plot(profile_with_borders)
 
   return(profile_with_borders)
