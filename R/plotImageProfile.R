@@ -3,10 +3,10 @@
 #' @param densProfile Density profile
 #' @param im Density matrix
 #'
-#' @return Plot of ring limits on scan image
+#' @return Plot
 #' @export
 #'
-#'
+#' @examples
 #' library(oro.dicom)
 #' file_path <- system.file("extdata", "disk.dcm", package = "CTRing")
 #' dcm <-  readDICOM(file_path)
