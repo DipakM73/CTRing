@@ -29,8 +29,6 @@ im_dens <- grayToDensity(im_8bit)
 
 pith_coord <- detect_pith(im_dens, n_segments = 12, pixel = TRUE, toPlot = FALSE)
 
-pith_coord_checked <- verifyPith(im_dens, pith_coord)
-
 endPath <- c(472, 284) # manual
 # not run - endPath <- locatePathEnd(im_dens, pith_coord) # using the image
 
