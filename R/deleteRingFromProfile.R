@@ -24,10 +24,15 @@
 #' endPath <- c(472, 284) # manual
 #' # not run - endPath <- locatePathEnd(im_dens, pith_coord) # using the image
 #'
-#' path <- extractProfile(im_dens, image_info, pith_coord, endPath, k = 2, r = 5, threshold = 0.002)
+#' densPath <- extractProfile(im_dens,
+#'                            image_info,
+#'                            pith_coord,
+#'                            endPath,
+#'                            k = 2, r = 5,
+#'                            threshold = 0.002)
 #'
-#' plotProfile(path)
-#' newPath <- addRingFromProfile(n = 1, path)
+#' plotProfile(densPath)
+#' newPath <- addRingFromProfile(n = 1, densPath)
 #' oldPath <- deleteRingFromProfile(n = 1, newPath)
 deleteRingFromProfile <- function(n = 1, densProfile) {
 

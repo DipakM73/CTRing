@@ -7,6 +7,8 @@
 #' @return Corrected density profile with new ring(s) added and blue bar in plot of added ring
 #' @export
 #'
+#' @import oro.dicom
+#'
 #' @examples
 #' library(oro.dicom)
 #' file_path <- system.file("extdata", "disk.dcm", package = "CTRing")
@@ -19,19 +21,27 @@
 #' image_info <- getImageInfo(hdr = hdr_df)
 #' im_dens <- grayToDensity(im_8bit)
 #'
-#' pith_coord <- detect_pith(im_dens, n_segments = 12, pixel = TRUE, toPlot = FALSE)
+#' pith_coord <- detect_pith(im_dens,
+#'                           n_segments = 12,
+#'                           pixel = TRUE,
+#'                           toPlot = FALSE)
 #'
 #' pith_coord_checked <- verifyPith(im_dens, pith_coord)
 #'
 #' endPath <- c(472, 284) # manual
 #' # not run - endPath <- locatePathEnd(im_dens, pith_coord) # using the image
 #'
-#' path <- extractProfile(im_dens, image_info, pith_coord, endPath, k = 2, r = 5, threshold = 0.002)
+#' densPath <- extractProfile(im_dens,
+#'                            image_info,
+#'                            pith_coord,
+#'                            endPath,
+#'                            k = 2, r = 5,
+#'                            threshold = 0.002)
 #'
-#' newPath2 <- addRingFromImage(n = 1, path, im_dens)
+#' newPath2 <- addRingFromImage(n = 1, densPath, im_dens)
 #'
 addRingFromImage <- function(n = 1, densProfile, im) {
-  plotImageProfile(path, im)
+  plotImageProfile(densProfile, im)
   segXY <- data.frame(x = densProfile$xx,
                       y = densProfile$yy)
 

@@ -154,13 +154,14 @@ findEwToLwTransition <- function(ringDist, ringID = NaN, toPlot=F) {
     } else {
       title = paste("Ring number ",ringID)
     }
+    poly.fn.local <- functional::Curry(poly.fn,
+                           a = polyCoefs[1],
+                           b = polyCoefs[2],
+                           c = polyCoefs[3],
+                           d = polyCoefs[4])
     plot(x = dist, y = ring, main = title)
     if (nPoints > 3){
-      curve(poly.fn(x,
-                    a = polyCoefs[1],
-                    b = polyCoefs[2],
-                    c = polyCoefs[3],
-                    d = polyCoefs[4]),
+      curve(poly.fn.local,
             from = min(dist),
             to = max(dist),
             add = T

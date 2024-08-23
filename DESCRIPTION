@@ -2,15 +2,21 @@ Package: CTRing
 Type: Package
 Title: Density Profiles of Wood from CT Scan Images
 Version: 0.1.0
-Author: Robert Schneider Dipak Mahatara
+Authors@R: c(person(given = "Dipak",
+                    family = "Mahatara",
+                    role = "aut"),
+               person(given = "Robert",
+                      family = "Schneider",
+                      role = c("cre","aut"),
+                      email = "robert_schneider@uqar.ca"))
 Maintainer: Robert Schneider <robert_schneider@uqar.ca>
-Description: Wood density profils are extracted from computerized tomography (CT) scan images of tree discs. The pith is detected automatically.
+Description: Wood density profiles are extracted from computerized tomography (CT) scan images of tree discs. The pith is detected automatically.
 License: GPL-3
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
 Suggests: knitr, rmarkdown
 VignetteBuilder: knitr
-Depends: xRing, terra, oro.dicom 
+Depends: xRing, terra, functional, oro.dicom 
 NeedsCompilation: no
 Packaged: 2024-03-22 19:43:35 UTC; fc

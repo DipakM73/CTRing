@@ -28,7 +28,7 @@
 locatePathEnd <- function(im, pithCoord){
   dev.new()
   image(im)
-  points(x =  pith_coord["x"]/dim(im)[1], y =  pith_coord["y"]/dim(im)[2], pch = 19)
+  points(x =  pithCoord["x"]/dim(im)[1], y =  pithCoord["y"]/dim(im)[2], pch = 19)
 
   coord <- locator(1)
   coord$x = coord$x * dim(im)[1]
