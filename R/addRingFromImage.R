@@ -26,8 +26,7 @@
 #'                           pixel = TRUE,
 #'                           toPlot = FALSE)
 #'
-#' endPath <- c(472, 284) # manual
-#' # not run - endPath <- locatePathEnd(im_dens, pith_coord) # using the image
+#' endPath <- c(472, 284)
 #'
 #' densPath <- extractProfile(im_dens,
 #'                            image_info,
@@ -43,7 +42,7 @@ addRingFromImage <- function(n = 1, densProfile, im) {
   segXY <- data.frame(x = densProfile$xx,
                       y = densProfile$yy)
 
-  print(paste("Clic", n, "time(s) on graph to position new ring(s)"))
+  message(paste("Clic", n, "time(s) on graph to position new ring(s)"))
   newCoord <- locator(n)
   newCoord$x <- newCoord$x * dim(im)[1]
   newCoord$y <- newCoord$y * dim(im)[2]

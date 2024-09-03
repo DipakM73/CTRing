@@ -29,7 +29,7 @@
 #'
 addRingFromProfile <- function(n = 1, densProfile) {
 
-  print(paste("Clic", n, "time(s) on graph to position new ring(s)"))
+  message(paste("Clic", n, "time(s) on graph to position new ring(s)"))
   newCoord <- locator(n)
 
   for (i in c(1:n)){

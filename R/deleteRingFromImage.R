@@ -38,7 +38,7 @@ deleteRingFromImage <- function(n = 1, densProfile, im) {
   ringXY <- data.frame(x = densProfile$xx[densProfile$ring_limits],
                        y = densProfile$yy[densProfile$ring_limits])
 
-  print(paste("Select", n, "ring(s) on graph to delete"))
+  message(paste("Select", n, "ring(s) on graph to delete"))
   newCoord <- locator(n)
   newCoord$x <- newCoord$x * dim(im)[1]
   newCoord$y <- newCoord$y * dim(im)[2]

@@ -34,7 +34,7 @@
 #' oldPath <- deleteRingFromProfile(n = 1, newPath)
 deleteRingFromProfile <- function(n = 1, densProfile) {
 
-  print(paste("Select", n, "ring(s) on graph delete"))
+  message(paste("Select", n, "ring(s) on graph delete"))
   newCoord <- locator(n)
 
   for (i in c(1:n)){

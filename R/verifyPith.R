@@ -27,18 +27,18 @@ verifyPith <- function(im, pith_coord) {
   abline(v = pith_coord["x"]/dim(im)[1], col = 'blue')
   abline(h = pith_coord["y"]/dim(im)[2], col = 'blue')
 
-  print("Is pith correctly located (y/n)? ")
+  message("Is pith correctly located (y/n)? ")
   correct <- readline()
 
   if (correct == "n"){
-    print("Please click on pith")
+    message("Please click on pith")
     pith <- locator(1)
     out <- c(x = pith$x, y = pith$y)
     return(out)
   } else if (correct == "y") {
     return(pith_coord)
   } else {
-    print("Incorrect answer. No changes to pith coordinates")
+    message("Incorrect answer. No changes to pith coordinates")
     return(pith_coord)
   }
 }
