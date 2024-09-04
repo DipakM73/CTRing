@@ -6,7 +6,7 @@ cI <- function(...) {
 
 outliers2NA <- function(x, probs = c(.25, 0.75)) {
   x <- x[!is.na(x)]
-  Q <- quantile(x, probs = probs, na.rm = TRUE)
+  Q <- stats::quantile(x, probs = probs, na.rm = TRUE)
   iqr <- IQR(x)
   low <-  Q[1] - 1 * iqr # lower range
   up <-  Q[2] + 1 * iqr # upper range

@@ -20,7 +20,6 @@
 #' pith_coord <- detect_pith(im_dens, n_segments = 12, pixel = TRUE, toPlot = FALSE)
 #'
 #' endPath <- c(472, 284) # manual
-#' # not run - endPath <- locatePathEnd(im_dens, pith_coord) # using the image
 #'
 #' path <- extractProfile(im_dens, image_info, pith_coord, endPath, k = 2, r = 5, threshold = 0.002)
 #'
@@ -36,8 +35,8 @@ plotImageProfile <- function(densProfile, im) {
                        y = densProfile$yy[densProfile$ring_limits])
   #### plot image
   dev.new()
-  image(im)
-  points(x = xSeg, y = ySeg, pch = 19)
-  segments(xSeg[1], ySeg[1], xSeg[2], ySeg[2])
-  points(x = ringXY$x/dim(im)[1], y = ringXY$y/dim(im)[2], pch = 10)
+  graphics::image(im)
+  graphics::points(x = xSeg, y = ySeg, pch = 19)
+  graphics::segments(xSeg[1], ySeg[1], xSeg[2], ySeg[2])
+  graphics::points(x = ringXY$x/dim(im)[1], y = ringXY$y/dim(im)[2], pch = 10)
 }

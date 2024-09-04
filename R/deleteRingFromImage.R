@@ -22,7 +22,6 @@
 #' pith_coord <- detect_pith(im_dens, n_segments = 12, pixel = TRUE, toPlot = FALSE)
 #'
 #' endPath <- c(472, 284) # manual
-#' # not run - endPath <- locatePathEnd(im_dens, pith_coord) # using the image
 #'
 #' densPath <- extractProfile(im_dens,
 #'                            image_info,
@@ -49,7 +48,7 @@ deleteRingFromImage <- function(n = 1, densProfile, im) {
     deletedRingIndex <- densProfile$ring_limits[newIndex]
     densProfile$ring_limits <- densProfile$ring_limits[-newIndex]
     densProfile$distRingChange <- densProfile$distRingChange[-newIndex]
-    points(x = densProfile$xx[deletedRingIndex]/dim(im)[1], y = densProfile$yy[deletedRingIndex]/dim(im)[2],pch = 10, col = 'red')
+    graphics::points(x = densProfile$xx[deletedRingIndex]/dim(im)[1], y = densProfile$yy[deletedRingIndex]/dim(im)[2],pch = 10, col = 'red')
   }
 
   return(densProfile)

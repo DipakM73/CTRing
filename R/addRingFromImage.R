@@ -53,7 +53,7 @@ addRingFromImage <- function(n = 1, densProfile, im) {
     newDist <- densProfile$distFromPith[newIndex]
     densProfile$ring_limits <- sort(c(densProfile$ring_limits, newIndex))
     densProfile$distRingChange <- sort(c(densProfile$distRingChange, newDist))
-    points(x = densProfile$xx[newIndex]/dim(im)[1], y = densProfile$yy[newIndex]/dim(im)[2],
+    graphics::points(x = densProfile$xx[newIndex]/dim(im)[1], y = densProfile$yy[newIndex]/dim(im)[2],
            pch = 10, col = 'blue')
   }
 

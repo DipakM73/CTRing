@@ -15,7 +15,7 @@ rotate <- function(x) t(apply(x, 2, rev))
 # split vector function taken from https://stackoverflow.com/questions/16357962/r-split-numeric-vector-at-position
 splitAt <- function(x, pos) {
   pos <- c(1L, pos, length(x) + 1L)
-  Map(function(x, i, j) x[i:j], list(x), head(pos, -1L), tail(pos, -1L) - 1L)
+  Map(function(x, i, j) x[i:j], list(x), utils::head(pos, -1L), utils::tail(pos, -1L) - 1L)
 }
 
 # polynomial function
@@ -73,8 +73,8 @@ findEwToLwTransition <- function(ringDist, ringID = NaN, toPlot=F) {
     polyCoefs <- getPolyCoefs(dist, ring)
 
     if (is.na(polyCoefs[4])){
-      inflexPoint <- quantile(dist, 0.5)
-      minMax <- quantile(dist, c(0.1, 0.9))
+      inflexPoint <- stats::quantile(dist, 0.5)
+      minMax <- stats::quantile(dist, c(0.1, 0.9))
       names(minMax) <- c("min", "max")
     } else {
       inflexPoint <- poly.fn.inf(a = polyCoefs[1],

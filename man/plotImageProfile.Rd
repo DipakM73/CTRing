@@ -31,7 +31,6 @@ im_dens <- grayToDensity(im_8bit)
 pith_coord <- detect_pith(im_dens, n_segments = 12, pixel = TRUE, toPlot = FALSE)
 
 endPath <- c(472, 284) # manual
-# not run - endPath <- locatePathEnd(im_dens, pith_coord) # using the image
 
 path <- extractProfile(im_dens, image_info, pith_coord, endPath, k = 2, r = 5, threshold = 0.002)
 
