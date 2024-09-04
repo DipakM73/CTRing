@@ -18,6 +18,30 @@ xRing profile with corrected ring location
 Verify position of ring transitions of a density profile
 }
 \examples{
-# t2 <- checkProfile(t1, 30)
+library(oro.dicom)
+file_path <- system.file("extdata", "disk.dcm", package = "CTRing")
+dcm <-  readDICOM(file_path)
+hdr_df <- dcm$hdr[[1]]
+image_info <- getImageInfo(hdr = hdr_df)
 
+im <- imageToMatrix(dcm$img)
+im_8bit <- xBitTo8Bit(im, image_info$grayScale)
+image_info <- getImageInfo(hdr = hdr_df)
+im_dens <- grayToDensity(im_8bit)
+
+pith_coord <- detect_pith(im_dens,
+                          n_segments = 12,
+                          pixel = TRUE,
+                          toPlot = FALSE)
+
+endPath <- c(472, 284)
+
+densPath <- extractProfile(im_dens,
+                           image_info,
+                           pith_coord,
+                           endPath,
+                           k = 2, r = 5,
+                           threshold = 0.002)
+
+newPath <- checkProfile(densPath, 26)
 }

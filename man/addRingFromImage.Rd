@@ -36,8 +36,7 @@ pith_coord <- detect_pith(im_dens,
                           pixel = TRUE,
                           toPlot = FALSE)
 
-endPath <- c(472, 284) # manual
-# not run - endPath <- locatePathEnd(im_dens, pith_coord) # using the image
+endPath <- c(472, 284)
 
 densPath <- extractProfile(im_dens,
                            image_info,
