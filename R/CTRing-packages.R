@@ -3,5 +3,4 @@
 #' @importFrom stats IQR approx coef lm optimize quantile
 #' @importFrom utils head tail
 #' @import functional
-#' @import terra
 NULL

@@ -17,6 +17,6 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
 Suggests: knitr, rmarkdown
 VignetteBuilder: knitr
-Depends: xRing, terra, functional, oro.dicom 
+Depends: xRing, functional, oro.dicom 
 NeedsCompilation: no
 Packaged: 2024-03-22 19:43:35 UTC; fc
